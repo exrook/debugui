@@ -38,17 +38,17 @@ fn main() {
         value: 62,
         value2: 6.28,
     };
-    let param = debugui::set!(35);
+    let _param = debugui::set!(35);
     loop {
-        let param = debugui::set!("NAMED", 35 => |_: &u32, o, ui| {
-            ui.label(format!("VALUE: {:?}", o));
+        let param = debugui::set!("Named value", 35 => |o: &u32, _ui_value, ui| {
+            ui.label(format!("value is: {:?}", o));
         });
         let mine = debugui::set!(&mut mine);
         let mine2 = debugui::set!(&mut mine2 => |original: &MyType, ui_value, ui| {
-            ui.label(format!("Progam is setting AAA values: {} {}", original.value, original.value2));
+            ui.label(format!("Progam is setting values: {} {}", original.value, original.value2));
         });
         println!("Parameter is {:?}", param);
-        println!("Mine is {:?} AND {:?}", mine, mine2);
+        println!("Mine is {:?} and Mine2 {:?}", mine, mine2);
         std::thread::sleep(std::time::Duration::from_millis(200));
     }
 }

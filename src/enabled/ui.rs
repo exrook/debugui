@@ -57,15 +57,19 @@ where
     D: Borrow<wgpu::Device>,
     Q: Borrow<wgpu::Queue>,
 {
-    fn new<T>(
+    pub fn new<T>(
         event_loop: &mut winit::event_loop::EventLoop<T>,
         instance: &wgpu::Instance,
         adapter: &wgpu::Adapter,
         device: D,
         queue: Q,
     ) -> Self {
+        // Trigger the once since we're creating the window on the main thread
         UI_LAUNCHED.call_once(|| {});
-        let window = winit::window::Window::new(&event_loop).unwrap();
+        let window = winit::window::WindowBuilder::new()
+            .with_title("debugui")
+            .build(&event_loop)
+            .unwrap();
 
         let surface = unsafe { instance.create_surface(&window) }.unwrap();
 
@@ -185,10 +189,7 @@ where
                                     color_attachments: &[Some(wgpu::RenderPassColorAttachment {
                                         view: &view,
                                         resolve_target: None,
-                                        ops: wgpu::Operations {
-                                            load: wgpu::LoadOp::Load,
-                                            store: true,
-                                        },
+                                        ops: wgpu::Operations::default(),
                                     })],
                                     ..Default::default()
                                 });

@@ -125,9 +125,6 @@ fn viewer_for_typeid(id: TypeId) -> Option<&'static DynViewer> {
             .filter_map(|v| v.param_type().map(|t| (t, *v)))
             .collect()
     });
-    for viewer in table.keys() {
-        println!("AAA {:?}", viewer);
-    }
     table.get(&id).copied()
 }
 

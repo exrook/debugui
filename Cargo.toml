@@ -16,7 +16,6 @@ wgpu = { optional = true, version = "0.17" }
 pollster = { optional = true, version ="0.3" }
 
 [features]
-default = ["enabled"]
 enabled = ["egui", "egui-winit", "egui-wgpu", "linkme", "parking_lot", "pollster", "wgpu"]
 
 [patch.crates-io]
