@@ -2,6 +2,9 @@ Lets you manipulate values in your program at runtime with a gui window.
 
 See [examples](examples/debugui.rs) for how to plug values into debugui
 
+
+![demo image](https://github.com/exrook/debugui/blob/example_images/example.png?raw=true)
+
 # Setup
 
 If you want to use it in a cli program, it automatically creates an event loop
