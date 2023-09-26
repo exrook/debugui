@@ -1,0 +1,26 @@
+[package]
+name = "debugui"
+version = "0.1.0"
+edition = "2021"
+
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+egui-wgpu = { optional = true, version = "0.22" }
+egui-winit = { optional = true, version = "0.22" }
+egui = { optional = true, version = "0.22" }
+linkme = { optional = true, version = "0.3" }
+parking_lot = { optional = true, version = "0.12"}
+wgpu = { optional = true, version = "0.17" }
+pollster = { optional = true, version ="0.3" }
+
+[features]
+default = ["enabled"]
+enabled = ["egui", "egui-winit", "egui-wgpu", "linkme", "parking_lot", "pollster", "wgpu"]
+
+[patch.crates-io]
+# egui stable uses old wgpu
+egui-wgpu = { git = "https://github.com/emilk/egui/" }
+egui-winit = { git = "https://github.com/emilk/egui/" }
+egui = { git = "https://github.com/emilk/egui/" }
