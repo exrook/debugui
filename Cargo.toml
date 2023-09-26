@@ -17,14 +17,8 @@ egui-winit = { optional = true, version = "0.22" }
 egui = { optional = true, version = "0.22" }
 linkme = { optional = true, version = "0.3" }
 parking_lot = { optional = true, version = "0.12"}
-wgpu = { optional = true, version = "0.17" }
+wgpu = { optional = true, version = "0.16" }
 pollster = { optional = true, version ="0.3" }
 
 [features]
 enabled = ["egui", "egui-winit", "egui-wgpu", "linkme", "parking_lot", "pollster", "wgpu"]
-
-[patch.crates-io]
-# egui stable uses old wgpu
-egui-wgpu = { git = "https://github.com/emilk/egui/" }
-egui-winit = { git = "https://github.com/emilk/egui/" }
-egui = { git = "https://github.com/emilk/egui/" }

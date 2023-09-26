@@ -51,20 +51,3 @@ second one, so you have to integrate it as shown below:
         // ... your code
     }
 ```
-
-## Dependencies
-
-Currently `debugui` depends on `wgpu` version `0.17` which the latest crates.io
-version of egui does not support. Thus, you must patch `egui` in your own project to
-use the latest git version with the following lines in your `Cargo.toml`:
-
-```toml
-[patch.crates-io]
-# egui stable uses old wgpu
-egui-wgpu = { git = "https://github.com/emilk/egui/" }
-egui-winit = { git = "https://github.com/emilk/egui/" }
-egui = { git = "https://github.com/emilk/egui/" }
-````
-
-There is no real reason to require `wgpu 0.17`, other than that my other
-projects that use `debugui` currently require it.
