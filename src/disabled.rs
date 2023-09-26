@@ -33,6 +33,8 @@ macro_rules! viewer {
 #[macro_export]
 macro_rules! init_on {
     ($resources:ident, $loop:expr, $instance:expr, $adapter:expr, $device:expr, $queue:expr) => {
+        let _ = $instance;
+        let _ = $adapter;
         let $resources = ($device, $queue);
     };
 }
