@@ -1,3 +1,5 @@
+[![Crates.io](https://img.shields.io/crates/v/debugui.svg?label=debugui)](https://crates.io/crates/debugui) [![docs.rs](https://docs.rs/debugui/badge.svg)](https://docs.rs/debugui/)
+
 Lets you manipulate values in your program at runtime with a gui window.
 
 See [examples](examples/debugui.rs) for how to plug values into debugui
@@ -53,6 +55,9 @@ second one, so you have to integrate it as shown below:
 ```
 
 ## Dependencies
+
+The below limitation only applies to the `master` version. The version on
+crates.io depends on `wgpu 0.16`
 
 Currently `debugui` depends on `wgpu` version `0.17` which the latest crates.io
 version of egui does not support. Thus, you must patch `egui` in your own project to
